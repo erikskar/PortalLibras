@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PortalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Tab_Questionario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+    <Property Name="Acertos" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Tab_QuestionarioLetras" Relationship="Self.FK__Tab_Quest__Quest__3C69FB99" FromRole="Tab_Questionario" ToRole="Tab_QuestionarioLetras" />
+    <NavigationProperty Name="TAB_Usuario" Relationship="Self.FK__Tab_Quest__Usuar__3B75D760" FromRole="Tab_Questionario" ToRole="TAB_Usuario" />
+  </EntityType>
+  <EntityType Name="Tab_QuestionarioLetras">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Questionario" Type="Int32" Nullable="false" />
+    <Property Name="Correta" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Resposta" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Tab_Questionario" Relationship="Self.FK__Tab_Quest__Quest__3C69FB99" FromRole="Tab_QuestionarioLetras" ToRole="Tab_Questionario" />
+  </EntityType>
+  <EntityType Name="TAB_Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Senha" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Perfil" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Tab_Questionario" Relationship="Self.FK__Tab_Quest__Usuar__3B75D760" FromRole="TAB_Usuario" ToRole="Tab_Questionario" />
+    <Property Name="Turma" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__Tab_Quest__Quest__3C69FB99">
+    <End Role="Tab_Questionario" Type="Self.Tab_Questionario" Multiplicity="1" />
+    <End Role="Tab_QuestionarioLetras" Type="Self.Tab_QuestionarioLetras" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tab_Questionario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tab_QuestionarioLetras">
+        <PropertyRef Name="Questionario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tab_Quest__Usuar__3B75D760">
+    <End Role="TAB_Usuario" Type="Self.TAB_Usuario" Multiplicity="1" />
+    <End Role="Tab_Questionario" Type="Self.Tab_Questionario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAB_Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tab_Questionario">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PortalEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Tab_Questionario" EntityType="Self.Tab_Questionario" />
+    <EntitySet Name="Tab_QuestionarioLetras" EntityType="Self.Tab_QuestionarioLetras" />
+    <EntitySet Name="TAB_Usuario" EntityType="Self.TAB_Usuario" />
+    <AssociationSet Name="FK__Tab_Quest__Quest__3C69FB99" Association="Self.FK__Tab_Quest__Quest__3C69FB99">
+      <End Role="Tab_Questionario" EntitySet="Tab_Questionario" />
+      <End Role="Tab_QuestionarioLetras" EntitySet="Tab_QuestionarioLetras" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tab_Quest__Usuar__3B75D760" Association="Self.FK__Tab_Quest__Usuar__3B75D760">
+      <End Role="TAB_Usuario" EntitySet="TAB_Usuario" />
+      <End Role="Tab_Questionario" EntitySet="Tab_Questionario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

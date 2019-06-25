@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PortalModelStoreContainer" CdmEntityContainer="PortalEntities2">
+    <EntitySetMapping Name="Tab_Questionario">
+      <EntityTypeMapping TypeName="PortalModel.Tab_Questionario">
+        <MappingFragment StoreEntitySet="Tab_Questionario">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="Acertos" ColumnName="Acertos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tab_QuestionarioLetras">
+      <EntityTypeMapping TypeName="PortalModel.Tab_QuestionarioLetras">
+        <MappingFragment StoreEntitySet="Tab_QuestionarioLetras">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Questionario" ColumnName="Questionario" />
+          <ScalarProperty Name="Correta" ColumnName="Correta" />
+          <ScalarProperty Name="Resposta" ColumnName="Resposta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAB_Usuario">
+      <EntityTypeMapping TypeName="PortalModel.TAB_Usuario">
+        <MappingFragment StoreEntitySet="TAB_Usuario">
+          <ScalarProperty Name="Turma" ColumnName="Turma" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+          <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

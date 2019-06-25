@@ -1,0 +1,12 @@
+﻿
+
+
+@{
+    ViewBag.Title = "Index";
+    @Scripts.Render("~/bundles/WebGL/js")
+}
+<script>
+    var gameInstance = UnityLoader.instantiate("gameContainer", "~/WebGL/Memoria/Facil/Build/facil.json");
+</script>
+<div id="gameContainer" style="width: 800px; height: 600px; margin: auto"></div>
+

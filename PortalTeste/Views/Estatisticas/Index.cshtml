@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <br>
+    <div class="row">
+
+        <div class="col-4 ">
+            <div class="card card-b ml-2">
+                <div class="card-header">
+                    Teste o seu desempenho
+                </div>
+
+                <div class="card-body">
+                    <img src="~/IMG/questionario.png" class="card-img-top" height="350" />
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-primary float-right" onclick="location.href='@Url.Action("Index" ,"Questionario")'">Acessar</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-4 ">
+            <div class="card card-b">
+                <div class="card-header">
+                    Gráfico de Acertos
+                </div>
+
+                <div class="card-body">
+                    <img src="~/IMG/relatorio.png" class="card-img-top" height="350" />
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-primary float-right" onclick="location.href='@Url.Action("Desempenho", "Estatisticas" )'">Acessar</button>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-4 ">
+            <div class="card card-b mr-2">
+                <div class="card-header">
+                    Verifique os sinais que você mais errou.
+                </div>
+
+                <div class="card-body">
+                    <img src="~/IMG/sinais errados.png" class="card-img-top" height="350" />
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-primary float-right" onclick="location.href='@Url.Action("LetrasMaisErradas", "Estatisticas" )'">Acessar</button>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

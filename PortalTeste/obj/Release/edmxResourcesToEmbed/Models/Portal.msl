@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PortalModelStoreContainer" CdmEntityContainer="PortalEntities1">
+    <EntitySetMapping Name="Tab_CaceALetra">
+      <EntityTypeMapping TypeName="PortalModel.Tab_CaceALetra">
+        <MappingFragment StoreEntitySet="Tab_CaceALetra">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="Tentativas" ColumnName="Tentativas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tab_Memoria">
+      <EntityTypeMapping TypeName="PortalModel.Tab_Memoria">
+        <MappingFragment StoreEntitySet="Tab_Memoria">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="Tentativas" ColumnName="Tentativas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tab_Questionario">
+      <EntityTypeMapping TypeName="PortalModel.Tab_Questionario">
+        <MappingFragment StoreEntitySet="Tab_Questionario">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="Acertos" ColumnName="Acertos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAB_Usuario">
+      <EntityTypeMapping TypeName="PortalModel.TAB_Usuario">
+        <MappingFragment StoreEntitySet="TAB_Usuario">
+          <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+          <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

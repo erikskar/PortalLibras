@@ -1,0 +1,35 @@
+﻿@model IEnumerable<PortalTeste.Models.LetrasMaisErradas>
+    @{
+        ViewBag.Title = "LetrasMaisErradas";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+
+    <div class="row h-100">
+        <div class="col-12 m-auto">
+            <div class="card card-b">
+                <div class="card-header text-center">
+                     Estes são os 5 sinais que voce mais errou.
+                </div>
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-1"></div>
+                        @foreach (var item in Model)                        
+                        {
+                        <div class="card col-2">
+                            <div class="card-header">
+                                Você errou a letra<b> "@item.Alfabeto" </b>@item.quantidade vezes
+                            </div>
+                            <div class="card-body">
+                                <img src="@Url.Content(item.UrlImgNormal)" class="card-img-top" />
+                            </div>
+
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>

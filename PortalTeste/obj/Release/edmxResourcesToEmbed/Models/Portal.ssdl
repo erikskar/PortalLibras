@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PortalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Tab_CaceALetra">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UsuarioId" Type="int" Nullable="false" />
+    <Property Name="Tentativas" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tab_Memoria">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UsuarioId" Type="int" Nullable="false" />
+    <Property Name="Tentativas" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tab_Questionario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UsuarioId" Type="int" Nullable="false" />
+    <Property Name="Acertos" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TAB_Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Senha" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Perfil" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Nivel" Type="int" />
+  </EntityType>
+  <Association Name="FK__Tab_CaceA__Usuar__3F466844">
+    <End Role="TAB_Usuario" Type="Self.TAB_Usuario" Multiplicity="1" />
+    <End Role="Tab_CaceALetra" Type="Self.Tab_CaceALetra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAB_Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tab_CaceALetra">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tab_Memor__Usuar__3D5E1FD2">
+    <End Role="TAB_Usuario" Type="Self.TAB_Usuario" Multiplicity="1" />
+    <End Role="Tab_Memoria" Type="Self.Tab_Memoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAB_Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tab_Memoria">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tab_Quest__Usuar__3E52440B">
+    <End Role="TAB_Usuario" Type="Self.TAB_Usuario" Multiplicity="1" />
+    <End Role="Tab_Questionario" Type="Self.Tab_Questionario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAB_Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tab_Questionario">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PortalModelStoreContainer">
+    <EntitySet Name="Tab_CaceALetra" EntityType="Self.Tab_CaceALetra" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tab_Memoria" EntityType="Self.Tab_Memoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tab_Questionario" EntityType="Self.Tab_Questionario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TAB_Usuario" EntityType="Self.TAB_Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Tab_CaceA__Usuar__3F466844" Association="Self.FK__Tab_CaceA__Usuar__3F466844">
+      <End Role="TAB_Usuario" EntitySet="TAB_Usuario" />
+      <End Role="Tab_CaceALetra" EntitySet="Tab_CaceALetra" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tab_Memor__Usuar__3D5E1FD2" Association="Self.FK__Tab_Memor__Usuar__3D5E1FD2">
+      <End Role="TAB_Usuario" EntitySet="TAB_Usuario" />
+      <End Role="Tab_Memoria" EntitySet="Tab_Memoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tab_Quest__Usuar__3E52440B" Association="Self.FK__Tab_Quest__Usuar__3E52440B">
+      <End Role="TAB_Usuario" EntitySet="TAB_Usuario" />
+      <End Role="Tab_Questionario" EntitySet="Tab_Questionario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

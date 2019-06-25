@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="37096777a09b4e4db3d9007dea64678d" Name="Diagram1">
+        <EntityTypeShape EntityType="PortalModel.Tab_CaceALetra" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalModel.Tab_Memoria" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalModel.Tab_Questionario" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalModel.TAB_Usuario" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <AssociationConnector Association="PortalModel.FK__Tab_CaceA__Usuar__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalModel.FK__Tab_Memor__Usuar__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalModel.FK__Tab_Quest__Usuar__3D5E1FD2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

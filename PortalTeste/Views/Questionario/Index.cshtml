@@ -1,0 +1,37 @@
+﻿@model PortalTeste.Models.Questionario
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var c = @Model.correto;
+    var count = 0;
+    @Model.pergunta = Model.pergunta + 1;
+}
+
+<div class="container" style="text-align:center">
+    <h2>Questionário</h2>
+    <p>Teste o seu Conhecimento tentando acertar os sinais correspondentes a letra do alfabeto</p>
+    <div class="row h-100">
+        <div class="col-12 m-auto">
+            <div class="card card-b">
+                <div class="card-header">
+                     @Html.DisplayFor(Model => Model.pergunta)/10 - Clique na Sinal correspondente a letra @Html.DisplayFor(Model => Model.Alfabeto[c])
+                </div>
+
+                <div class="card-body">
+                    <div class="row">
+                        @foreach (var item in Model.UrlImgNormal)
+                        {
+                            <div class="card col-4">
+                                <div class="card-body">
+                                    <img src="@Url.Content(item)" class="card-img-top" onclick="location.href='@Url.Action("Resposta", "Questionario",new {correto = Model.correto, Alfabeto0 = Model.Alfabeto[0], Alfabeto1 = Model.Alfabeto[1], Alfabeto2 = Model.Alfabeto[2], resposta = Model.Alfabeto[count], pergunta = Model.pergunta })'">                                   
+                                </div>
+                                
+                            </div>
+                            count++;
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PortalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Tab_CaceALetra">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+    <Property Name="Tentativas" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TAB_Usuario" Relationship="Self.FK__Tab_CaceA__Usuar__3F466844" FromRole="Tab_CaceALetra" ToRole="TAB_Usuario" />
+  </EntityType>
+  <EntityType Name="Tab_Memoria">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+    <Property Name="Tentativas" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TAB_Usuario" Relationship="Self.FK__Tab_Memor__Usuar__3E52440B" FromRole="Tab_Memoria" ToRole="TAB_Usuario" />
+  </EntityType>
+  <EntityType Name="Tab_Questionario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+    <Property Name="Acertos" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TAB_Usuario" Relationship="Self.FK__Tab_Quest__Usuar__3D5E1FD2" FromRole="Tab_Questionario" ToRole="TAB_Usuario" />
+  </EntityType>
+  <EntityType Name="TAB_Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Senha" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nivel" Type="Int32" />
+    <NavigationProperty Name="Tab_CaceALetra" Relationship="Self.FK__Tab_CaceA__Usuar__3F466844" FromRole="TAB_Usuario" ToRole="Tab_CaceALetra" />
+    <NavigationProperty Name="Tab_Memoria" Relationship="Self.FK__Tab_Memor__Usuar__3E52440B" FromRole="TAB_Usuario" ToRole="Tab_Memoria" />
+    <NavigationProperty Name="Tab_Questionario" Relationship="Self.FK__Tab_Quest__Usuar__3D5E1FD2" FromRole="TAB_Usuario" ToRole="Tab_Questionario" />
+    <Property Name="Perfil" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__Tab_CaceA__Usuar__3F466844">
+    <End Role="TAB_Usuario" Type="Self.TAB_Usuario" Multiplicity="1" />
+    <End Role="Tab_CaceALetra" Type="Self.Tab_CaceALetra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAB_Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tab_CaceALetra">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tab_Memor__Usuar__3E52440B">
+    <End Role="TAB_Usuario" Type="Self.TAB_Usuario" Multiplicity="1" />
+    <End Role="Tab_Memoria" Type="Self.Tab_Memoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAB_Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tab_Memoria">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tab_Quest__Usuar__3D5E1FD2">
+    <End Role="TAB_Usuario" Type="Self.TAB_Usuario" Multiplicity="1" />
+    <End Role="Tab_Questionario" Type="Self.Tab_Questionario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAB_Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tab_Questionario">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PortalEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Tab_CaceALetra" EntityType="Self.Tab_CaceALetra" />
+    <EntitySet Name="Tab_Memoria" EntityType="Self.Tab_Memoria" />
+    <EntitySet Name="Tab_Questionario" EntityType="Self.Tab_Questionario" />
+    <EntitySet Name="TAB_Usuario" EntityType="Self.TAB_Usuario" />
+    <AssociationSet Name="FK__Tab_CaceA__Usuar__3F466844" Association="Self.FK__Tab_CaceA__Usuar__3F466844">
+      <End Role="TAB_Usuario" EntitySet="TAB_Usuario" />
+      <End Role="Tab_CaceALetra" EntitySet="Tab_CaceALetra" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tab_Memor__Usuar__3E52440B" Association="Self.FK__Tab_Memor__Usuar__3E52440B">
+      <End Role="TAB_Usuario" EntitySet="TAB_Usuario" />
+      <End Role="Tab_Memoria" EntitySet="Tab_Memoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tab_Quest__Usuar__3D5E1FD2" Association="Self.FK__Tab_Quest__Usuar__3D5E1FD2">
+      <End Role="TAB_Usuario" EntitySet="TAB_Usuario" />
+      <End Role="Tab_Questionario" EntitySet="Tab_Questionario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

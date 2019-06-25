@@ -1,0 +1,36 @@
+﻿@model PortalTeste.Models.Questionario
+@{
+    ViewBag.Title = "resposta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container" style="text-align:center">
+    <h2>Questionario</h2>
+    <p>Teste o seu Conhecimento</p>
+    <div class="row h-100">
+        <div class="col-12 m-auto">
+            <div class="card card-b">
+                <div class="card-header">
+                   A resposta correta é:
+                </div>
+
+                <div class="card-body">
+                    <div class="row">
+                        @foreach (var item in Model.UrlImgNormal)
+                        {
+                            <div class="card col-4">
+                                <div class="card-body">
+                                    <img src="@Url.Content(item)" class="card-img-top">                                  
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-primary float-right" onclick="location.href='@Url.Action("Index", "Questionario",new { pergunta = Model.pergunta })'">Próxima Pergunta</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
